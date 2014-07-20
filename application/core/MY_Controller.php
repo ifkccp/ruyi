@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller
 
 	private function _check_login()
 	{
-		$exclude_path = array('user/login', 'inf/getzip', 'make/index', 'make/get_list','pick/income','pick/index','pick/mlist','pick/url', 'vtcheck/check', 'vtcheck/check_file');
+		$exclude_path = array('user/login', 'user/inf_login');
 
 		$current_path = $this->router->class . '/' . $this->router->method;
 		if(!in_array($current_path, $exclude_path) &&
@@ -38,5 +38,19 @@ class MY_Controller extends CI_Controller
 	private function _init()
 	{
 		// $this->load->database();
+	}
+
+	protected function ext_succ($data = array())
+	{
+		header('Content-type: application/json');
+		$msg = array('success'=>true, 'data'=>$data);
+		echo json_encode($msg);
+	}
+
+	protected function ext_fail($data = array())
+	{
+		header('Content-type: application/json');
+		$msg = array('success'=>false, 'data'=>$data);
+		echo json_encode($msg);
 	}
 }

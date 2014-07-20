@@ -2,16 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>Document</title>
+	<title>如意必答管理后台</title>
 
-	<link rel="stylesheet" href="/static/extjs/ext-theme-neptune-all.css" />
-	<script src="/static/extjs/ext-all.js"></script>
-	<script src="/static/extjs/ext-theme-neptune.js"></script>
+	<link rel="stylesheet" href="/static/extjs/ext-theme-classic-all.css" />
+	<script src="/static/extjs/ext-all-dev.js"></script>
+	<script src="/static/extjs/ext-theme-classic.js"></script>
+	<script src="/static/extjs/ext-lang-zh_CN.js"></script>
+	<script src="/static/js/user/login.js"></script>
 
+	<style>
+		body {
+			background-attachment: fixed;
+			background-color: #404040;
+			background-image: url(http://7.su.bdimg.com/skin/15.jpg?2);
+			background-position: 50% 0px;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
 
 </head>
 <body>
 <div></div>
 </body>
 </html>
-<script src="/static/js/user/login.js"></script>
