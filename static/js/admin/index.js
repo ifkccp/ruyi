@@ -58,6 +58,8 @@ treePanel.on({
 			} else {
 				tabPanel.setActiveTab(_tab)
 			}
+
+			location.hash = id
 		}
 	}
 })
@@ -90,6 +92,21 @@ Ext.onReady(function(){
 				items: [tabPanel]
 			}
 		]
-	})
+	});
 
+	(function(){
+		var default_id = 'menu.user',
+			hash = location.hash.substr('1')
+
+		if(!hash) hash = default_id
+
+		var	view = treePanel.getView(),
+			node = view.getNodeById(hash)
+		
+		if(!node)
+			node = view.getNodeById(default_id)
+
+		node.click()
+	})()
+	
 })
