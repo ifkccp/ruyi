@@ -10,13 +10,14 @@ Ext.onReady(function(){
 			labelWidth: 50
 		},
 
-		url: '/user/inf_login',
+		url: '/user/extinf_login',
 
 		defaultType: 'textfield',
 		items: [
 			{
 				fieldLabel: '账号',
 				name: 'user',
+                itemId: 'user',
 				allowBlank: false,
 				emptyText: '登陆账号',
 				defaultFocus: true
@@ -35,7 +36,7 @@ Ext.onReady(function(){
 			}
 		],
 
-		defaultFocus: 'yes',
+		defaultFocus: 'user',
 
 		buttons: [
 			{

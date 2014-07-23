@@ -50,8 +50,8 @@ treePanel.on({
 					_tab = tabPanel.add(Ext.create('My.' + id, {
 						id: 'tab.' + id,
 						title: rcd.raw.text,
-						closable: true,
-						html: 'xxxj'
+						bodyPadding: 0,
+						closable: true
 					}))
 					tabPanel.setActiveTab(_tab)
 				});
@@ -72,6 +72,7 @@ Ext.onReady(function(){
 				id: 'header',
 				region: 'north',
 				html: '<h1>如意后台管理系统</h1>',
+				html: '<h1>Test Admin</h1>',
 				height: 30
 			}, {
 				title: '菜单',

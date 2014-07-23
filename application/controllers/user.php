@@ -7,7 +7,7 @@ class User extends MY_Controller {
 		// $this->show('user/login.php');
 	}
 
-	public function inf_login()
+	public function extinf_login()
 	{
 		if('admin' == $_POST['user'] && 'admin' == $_POST['pass'])
 		{
@@ -16,5 +16,23 @@ class User extends MY_Controller {
 		}
 		else
 			$this->ext_fail();
+	}
+
+	public function extinf_userlist()
+	{
+		$data = array(
+			array(
+				'id' => 1,
+				'name' => 'xiaojing',
+				'email' => 'xiaojing@xj.com'
+			),
+			array(
+				'id' => 2,
+				'name' => 'ifkccp',
+				'email' => 'ifkccp@163.com'
+			)
+		);
+
+		$this->ext_succ($data);
 	}
 }
