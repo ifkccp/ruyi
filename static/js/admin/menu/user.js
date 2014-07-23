@@ -33,13 +33,11 @@ Ext.define('My.menu.user', {
 			}
 		}
 	}),
+
+	selType: 'checkboxmodel',
+
 	columns: [
 		{
-			xtype: 'checkcolumn',
-			// dataIndex: 'id',
-			width: 50,
-			locked: true
-		}, {
 			header: 'Id',
 			dataIndex: 'id',
 			locked: true,
@@ -71,70 +69,40 @@ Ext.define('My.menu.user', {
 		}
 	],
 
-	bbar: {
-		pageSize: 10,
-		store: this.store,
-		displayInfo: true,
-		plugins: Ext.create('Ext.ux.ProgressBarPager')
+	dockedItems: [
+		{
+			xtype: 'toolbar',
+			items: [
+				{
+					text: 'Add',
+					handler: this.onAddClick
+				}, {
+					text: 'Delete',
+					disabled: true,
+					itemId: 'delete',
+					handler: function(a,b,c){
+							console.log(a)
+							console.log(b)
+							console.log(c)
+						
+					}
+				}
+			]
+		}, {
+			xtype: 'toolbar',
+			dock: 'bottom',
+			items: [
+				{
+					xtype: 'tbtext',
+					text: '<b>@cfg</b>'
+				}
+			]
+		}
+	],
+
+	listeners: {
+		selectionchange: function(selModel, selections){
+			this.down('#delete').setDisabled(selections.length === 0)
+		}
 	}
-	
-	// initComponent: function(){
-	// 	// this.cellEditing = Ext.create('Ext.grid.plugin.CellEditing', {
-	// 	// 	clicksToEdit: 1
-	// 	// })
-
-	// 	Ext.apply(this, {
-	// 		// plugins: [this.cellEditing],
-	// 		store: Ext.create('Ext.data.Store', {
-	// 			autoDestory: true,
-	// 			proxy: {
-	// 				type: 'ajax',
-	// 				url: '/user/extinf_userlist',
-	// 				reader: {
-	// 					type: 'json',
-	// 					record: 'plant'
-	// 				}
-	// 			}
-	// 		}),
-	// 		columns: [
-	// 			{
-	// 				header: 'Name',
-	// 				dataIndex: 'name',
-	// 				flex: 1,
-	// 				editor: {
-	// 					allowBlank: false
-	// 				}
-	// 			},{
-	// 				header: 'Email',
-	// 				dataIndex: 'email',
-	// 				editor: {
-	// 					allowBlank: false
-	// 				}
-	// 			}
-	// 		]
-	// 	});
-
-	// 	this.callParent();
-
-	// 	this.on('afterLayout', this.loadStore, this, {
-	// 		delay: 1,
-	// 		single: true
-	// 	})
-	// },
-
-
-	// loadStore: function(){
-	// 	this.getStore().load({
-	// 		callback: this.onStoreLoad
-	// 	})
-	// },
-
-	// onStoreLoad: function(){
-	// 	Ext.Msg.show({
-	// 		title: 'Succ',
-	// 		msg: 'success',
-	// 		icon: Ext.Msg.INFO,
-	// 		buttons: Ext.Msg.OK
-	// 	})
-	// }
 })

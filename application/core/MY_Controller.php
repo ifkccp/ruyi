@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller
 
 	private function _check_login()
 	{
-		$exclude_path = array('user/login', 'user/inf_login');
+		$exclude_path = array('user/login', 'user/extinf_login');
 
 		$current_path = $this->router->class . '/' . $this->router->method;
 		if(!in_array($current_path, $exclude_path) &&
